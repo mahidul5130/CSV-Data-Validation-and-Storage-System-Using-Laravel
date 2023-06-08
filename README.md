@@ -11,25 +11,33 @@ The CSV Data Validation and Storage System is a web application built using the 
 ## Installation Instructions
 1. Clone the repository to your local machine.
 2. Navigate to the project directory.
-3. Run the following command to install the dependencies:
+3. Run the following command to install the PHP dependencies:
    ```
    composer install
    ```
-4. Create a new MySQL database for the project.
-5. Rename the `.env.example` file to `.env` and update the database connection details.
-6. Generate the application key by running the following command:
+4. Run the following command to install the JavaScript dependencies:
+   ```
+   npm install
+   ```
+5. Create a new MySQL database for the project.
+6. Rename the `.env.example` file to `.env` and update the database connection details.
+7. Generate the application key by running the following command:
    ```
    php artisan key:generate
    ```
-7. Run the database migrations to create the necessary tables:
+8. Run the database migrations to create the necessary tables:
    ```
    php artisan migrate
    ```
-8. Start the development server:
+9. Build the assets by running the following command:
+   ```
+   npm run dev
+   ```
+10. Start the development server:
    ```
    php artisan serve
    ```
-9. Access the application by visiting `http://localhost:8000` in your browser.
+11. Access the application by visiting `http://localhost:8000` in your browser.
 
 ## Usage
 1. Upload CSV File:
@@ -79,4 +87,4 @@ The CSV Data Validation and Storage System is a web application built using the 
 This project is licensed under the [MIT License](LICENSE).
 
 ## Contact Information
-For any inquiries or support, please email [mahidul5130@gmail.com.com](mailto:mahidul5130@gmail.com.com).
+For any inquiries or support, please email [mahidul5130@gmail.com](mailto:mahidul5130@gmail.com).
