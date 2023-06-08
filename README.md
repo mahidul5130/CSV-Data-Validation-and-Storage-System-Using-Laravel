@@ -70,4 +70,4 @@ The User Management System is a web application built using the Laravel framewor
 This project is licensed under the [MIT License](LICENSE).
 
 ## Contact Information
-For any inquiries or support, please email [your-email@example.com](mailto:your-email@example.com).
+For any inquiries or support, please email [mahidul5130@gmail.com.com](mailto:mahidul5130@gmail.com.com).
