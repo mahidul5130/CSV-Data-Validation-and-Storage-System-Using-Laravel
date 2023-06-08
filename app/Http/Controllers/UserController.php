@@ -46,7 +46,7 @@ class UserController extends Controller
                 'gender' => 'required',
                 'address' => 'required',
             ]);
-            
+
 
             if ($validator->fails()) {
                 $errors = $validator->errors()->all();
@@ -87,4 +87,31 @@ class UserController extends Controller
     }
 
     // Other methods...
+    public function userList(Request $request)
+    {
+        $users = User::query();
+
+        // Apply filters
+        if ($request->filled('name')) {
+            $users->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+
+        if ($request->filled('email')) {
+            $users->where('email', 'like', '%' . $request->input('email') . '%');
+        }
+
+        if ($request->filled('phone_number')) {
+            $users->where('phone_number', 'like', '%' . $request->input('phone_number') . '%');
+        }
+
+        if ($request->filled('gender')) {
+            $users->where('gender', $request->input('gender'));
+        }
+
+        // Get filtered users
+        $filteredUsers = $users->get();
+
+        return view('list', compact('filteredUsers'));
+    }
+
 }

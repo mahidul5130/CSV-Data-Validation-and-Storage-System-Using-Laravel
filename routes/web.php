@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\UserController@index')->name('home');
 Route::post('/upload', 'App\Http\Controllers\UserController@upload')->name('upload');
-Route::get('/list', 'App\Http\Controllers\UserController@list')->name('list');
+Route::get('/list', 'App\Http\Controllers\UserController@userList')->name('list');
