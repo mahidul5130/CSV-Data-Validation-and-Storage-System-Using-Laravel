@@ -7,7 +7,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">My App</a>
+            <a class="navbar-brand" href="#">CSV Data Validation and Storage System</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">Upload CSV</a>
