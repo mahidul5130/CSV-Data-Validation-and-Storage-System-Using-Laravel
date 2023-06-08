@@ -1,66 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# User Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Description
+The User Management System is a web application built using the Laravel framework. It allows users to upload a CSV file containing user data, validate the data based on specified conditions, store the valid data in a database, and provide a summary report of the uploaded data. Users can also view and filter the list of stored users.
 
-## About Laravel
+## Technologies Used
+- Laravel
+- Bootstrap
+- MySQL
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installation Instructions
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Run the following command to install the dependencies:
+   ```
+   composer install
+   ```
+4. Create a new MySQL database for the project.
+5. Rename the `.env.example` file to `.env` and update the database connection details.
+6. Generate the application key by running the following command:
+   ```
+   php artisan key:generate
+   ```
+7. Run the database migrations to create the necessary tables:
+   ```
+   php artisan migrate
+   ```
+8. Start the development server:
+   ```
+   php artisan serve
+   ```
+9. Access the application by visiting `http://localhost:8000` in your browser.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Usage
+1. Upload CSV File:
+   - Visit the homepage of the application.
+   - Click on the "Choose File" button to select a CSV file.
+   - Click the "Upload" button to process the file.
+   - The system will validate the data and provide a summary report.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. View User List:
+   - Click on the "User List" link in the navigation menu.
+   - Use the filter form to search for users based on name, email, phone number, and gender.
 
-## Learning Laravel
+## Screenshots
+![Upload CSV](screenshots/upload.png)
+*Screenshot 1: Uploading a CSV file.*
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![Summary Report](screenshots/summary.png)
+*Screenshot 2: Summary report of the uploaded data.*
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+![User List](screenshots/userlist.png)
+*Screenshot 3: List of stored users with filtering options.*
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Features
+- File upload functionality with CSV validation.
+- Storage of validated user data in a database.
+- Summary report showing total data, successful uploads, duplicates, invalid records, and incomplete records.
+- Filtering of user list based on name, email, phone number, and gender.
 
-## Laravel Sponsors
+## Known Issues
+- None at the moment.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Future Enhancements
+- Add pagination to the user list for better performance with a large number of records.
+- Implement user authentication and access control for secure data management.
+- Provide options for exporting user data in various formats (e.g., CSV, Excel).
 
 ## License
+This project is licensed under the [MIT License](LICENSE).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Contact Information
+For any inquiries or support, please email [your-email@example.com](mailto:your-email@example.com).
