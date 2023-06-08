@@ -53,7 +53,10 @@ The CSV Data Validation and Storage System is a web application built using the 
 *Screenshot 3: List of stored users with filtering options.*
 
 ![Upload another CSV](screenshots/upload_another.png)
-*Screenshot 3: Uploading another CSV file.*
+*Screenshot 4: Uploading another CSV file.*
+
+![Another Summary Report](screenshots/summary_another.png)
+*Screenshot 5: Summary report of the another uploaded data.*
 
 ## Features
 - File upload functionality with CSV validation.
