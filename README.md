@@ -1,7 +1,7 @@
 # CSV Data Validation and Storage System
 
 ## Description
-The User Management System is a web application built using the Laravel framework. It allows users to upload a CSV file containing user data, validate the data based on specified conditions, store the valid data in a database, and provide a summary report of the uploaded data. Users can also view and filter the list of stored users.
+The CSV Data Validation and Storage System is a web application built using the Laravel framework. It allows users to upload a CSV file containing user data, validate the data based on specified conditions, store the valid data in a database, and provide a summary report of the uploaded data. Users can also view and filter the list of stored users.
 
 ## Technologies Used
 - Laravel
