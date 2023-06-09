@@ -79,36 +79,36 @@ The CSV Data Validation and Storage System is a web application built using the 
 
 1. **app\Http\Controllers\UserController.php:**
    - Location: `app\Http\Controllers\UserController.php`
-   - Description: This file is located in the `app\Http\Controllers` directory and contains the `UserController` class. It serves as the controller for user-related actions in the application, handling tasks such as file upload, data validation, and displaying views.
+   - Description: This file is located in the `app\Http\Controllers` directory and contains the `UserController` class. It serves as the controller for user-related actions in the application, handling tasks such as rendering views, processing user input, and managing user data.
 
 2. **app\Models\User.php:**
    - Location: `app\Models\User.php`
-   - Description: This file is located in the `app\Models` directory and contains the `User` model class. It represents the `User` entity in the application and defines the structure and behavior of the `users` table in the database.
+   - Description: This file is located in the `app\Models` directory and represents the `User` model class. It defines the structure and behavior of the `users` table in the database. The `User` model is responsible for interacting with the `users` table, performing database operations such as retrieving, creating, updating, and deleting user records.
 
 3. **routes\web.php:**
    - Location: `routes\web.php`
-   - Description: This file is located in the `routes` directory and contains the web routes for the application. It defines the URL mappings and corresponding controller methods for handling user requests and interactions.
+   - Description: This file is located in the `routes` directory and contains the web routes for the application. It defines the URL mappings and associates them with the corresponding controller methods. The routes in this file determine how the application handles incoming HTTP requests and routes them to the appropriate controller actions.
 
 4. **resources\views\layouts\app.blade.php:**
    - Location: `resources\views\layouts\app.blade.php`
-   - Description: This file is located in the `resources\views\layouts` directory and serves as the layout template for the application's views. It provides the common HTML structure, including the navigation bar, and allows dynamic content to be inserted using the Blade templating engine.
+   - Description: This file is located in the `resources\views\layouts` directory and serves as the main layout template for the application's views. It provides a consistent structure and styling for all pages. The layout includes a navigation bar with links to upload a CSV file and view the user list. The content of each page is dynamically inserted into the designated section using the Blade templating engine. The layout also includes the necessary CSS styling by linking to the Bootstrap CSS file and the Bootstrap JavaScript bundle for interactive components.
 
 5. **resources\views\upload.blade.php:**
    - Location: `resources\views\upload.blade.php`
-   - Description: This file is located in the `resources\views` directory and represents the view for uploading CSV files. It includes a form to upload a file and is rendered within the app layout.
+   - Description: This file is located in the `resources\views` directory and represents the view for uploading CSV files. It displays a form for selecting a CSV file and uploading it to the server. The form is submitted to the designated route for file upload processing.
 
 6. **resources\views\summary.blade.php:**
    - Location: `resources\views\summary.blade.php`
-   - Description: This file is located in the `resources\views` directory and represents the view for displaying the summary report after uploading a CSV file. It shows statistics and detailed tables for invalid and duplicate records.
+   - Description: This file is located in the `resources\views` directory and represents the view for displaying a summary report after uploading a CSV file. It shows statistics such as the total number of records, successfully uploaded records, duplicate records, invalid records, and incomplete records. It also presents detailed tables for displaying the invalid records and duplicate records with their respective errors and existing user information.
 
 7. **resources\views\list.blade.php:**
    - Location: `resources\views\list.blade.php`
-   - Description: This file is located in the `resources\views` directory and represents the view for displaying the user list. It includes a filter form and displays the filtered user records in a table.
+   - Description: This file is located in the `resources\views` directory and represents the view for displaying the user list. It includes a filter form allowing users to search for specific users based on name, email, phone number, and gender. The user records matching the filter criteria are displayed in a table format, showing columns for name, email, phone number, gender, and address.
 
 8. **database\migrations\2023_06_08_141350_create_users_table.php:**
    - Location: `database\migrations\2023_06_08_141350_create_users_table.php`
-   - Description: This file is located in the `database\migrations` directory and contains the migration file for creating the `users` table in the database. It defines the table structure and is responsible for setting up the necessary database schema.
-   
+   - Description: This file is located in the `database\migrations` directory and contains the migration file for creating the `users` table in the database. The migration defines the schema for the `users` table, specifying the columns such as `name`, `email`, `phone_number`, `gender`, `address`, and the timestamps for creation and modification. Running this migration sets up the initial database structure required for storing user information.
+
 ## Known Issues
 - None at the moment.
 
