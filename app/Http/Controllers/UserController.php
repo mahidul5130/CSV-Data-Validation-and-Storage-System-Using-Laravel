@@ -86,7 +86,6 @@ class UserController extends Controller
         return view('summary', compact('summary', 'invalidRecords', 'duplicateRecords'));
     }
 
-    // Other methods...
     public function userList(Request $request)
     {
         $users = User::query();
