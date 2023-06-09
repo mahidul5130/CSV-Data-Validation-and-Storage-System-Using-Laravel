@@ -7,6 +7,7 @@
         <h2>Summary Report</h2>
         <div class="row">
             <div class="col-md-6">
+                <!-- Summary statistics -->
                 <p>Total Data: {{ $summary['totalData'] }}</p>
                 <p>Total Successfully Uploaded: {{ $summary['totalUploaded'] }}</p>
                 <p>Total Duplicate: {{ $summary['totalDuplicate'] }}</p>
@@ -16,6 +17,7 @@
         </div>
 
         <h2>Invalid Records</h2>
+        <!-- Table for displaying invalid records -->
         <table class="table">
             <thead>
                 <tr>
@@ -34,6 +36,7 @@
         </table>
 
         <h2>Duplicate Records</h2>
+        <!-- Table for displaying duplicate records -->
         <table class="table">
             <thead>
                 <tr>
