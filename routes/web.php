@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Home route
 Route::get('/', 'App\Http\Controllers\UserController@index')->name('home');
+
+// Upload route
 Route::post('/upload', 'App\Http\Controllers\UserController@upload')->name('upload');
+
+// User list route
 Route::get('/list', 'App\Http\Controllers\UserController@userList')->name('list');
