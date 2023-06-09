@@ -15,19 +15,23 @@ class UserController extends Controller
 
     public function upload(Request $request)
     {
+        // Validate the uploaded file
         $validator = Validator::make($request->all(), [
             'file' => 'required|mimes:csv|max:2048',
         ]);
 
+        // If validation fails, redirect back with errors
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
 
         $file = $request->file('file');
 
+        // Read and process the CSV data
         $csvData = array_map('str_getcsv', file($file->path()));
         $headers = array_shift($csvData);
 
+        // Initialize variables for tracking statistics
         $totalData = count($csvData);
         $totalUploaded = 0;
         $totalDuplicate = 0;
@@ -39,6 +43,7 @@ class UserController extends Controller
         foreach ($csvData as $row) {
             $data = array_combine($headers, $row);
 
+            // Validate the data for each row
             $validator = Validator::make($data, [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
@@ -47,7 +52,7 @@ class UserController extends Controller
                 'address' => 'required',
             ]);
 
-
+            // If validation fails, store the invalid record and continue to the next row
             if ($validator->fails()) {
                 $errors = $validator->errors()->all();
                 $invalidRecords[] = [
@@ -58,10 +63,12 @@ class UserController extends Controller
                 continue;
             }
 
+            // Check for duplicate records
             $existingUser = User::where('email', $data['email'])
                 ->orWhere('phone_number', $data['phone_number'])
                 ->first();
 
+            // If a duplicate record is found, store it and continue to the next row
             if ($existingUser) {
                 $duplicateRecords[] = [
                     'record' => $data,
@@ -71,10 +78,12 @@ class UserController extends Controller
                 continue;
             }
 
+            // Create a new user record
             User::create($data);
             $totalUploaded++;
         }
 
+        // Prepare the summary data
         $summary = [
             'totalData' => $totalData,
             'totalUploaded' => $totalUploaded,
@@ -83,6 +92,7 @@ class UserController extends Controller
             'totalIncomplete' => $totalIncomplete,
         ];
 
+        // Return the summary view with the relevant data
         return view('summary', compact('summary', 'invalidRecords', 'duplicateRecords'));
     }
 
@@ -90,7 +100,7 @@ class UserController extends Controller
     {
         $users = User::query();
 
-        // Apply filters
+        // Apply filters based on the request parameters
         if ($request->filled('name')) {
             $users->where('name', 'like', '%' . $request->input('name') . '%');
         }
@@ -107,10 +117,10 @@ class UserController extends Controller
             $users->where('gender', $request->input('gender'));
         }
 
-        // Get filtered users
+        // Get the filtered users
         $filteredUsers = $users->get();
 
+        // Return the user list view with the filtered users
         return view('list', compact('filteredUsers'));
     }
-
 }
