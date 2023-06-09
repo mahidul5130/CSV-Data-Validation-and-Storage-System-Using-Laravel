@@ -5,6 +5,7 @@
 @section('content')
     <div class="container mt-5">
         <h2>Upload CSV</h2>
+        <!-- CSV upload form -->
         <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
