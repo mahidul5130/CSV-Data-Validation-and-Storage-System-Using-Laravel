@@ -6,6 +6,7 @@
     <div class="container mt-5">
         <h2>User List</h2>
 
+        <!-- Form for filtering users -->
         <form method="GET" action="{{ route('list') }}" class="mb-4">
             <div class="row">
                 <div class="col-md-3">
@@ -18,6 +19,7 @@
                     <input type="text" name="phone_number" value="{{ request('phone_number') }}" class="form-control" placeholder="Enter phone number">
                 </div>
                 <div class="col-md-2">
+                    <!-- Dropdown for selecting gender -->
                     <select name="gender" class="form-control">
                         <option value="">All</option>
                         <option value="Male" {{ request('gender') === 'Male' ? 'selected' : '' }}>Male</option>
@@ -25,11 +27,13 @@
                     </select>
                 </div>
                 <div class="col-md-1">
+                    <!-- Filter button -->
                     <button type="submit" class="btn btn-primary">Filter</button>
                 </div>
             </div>
         </form>
 
+        <!-- Table for displaying the filtered users -->
         <table class="table">
             <thead>
                 <tr>
@@ -43,6 +47,7 @@
             <tbody>
                 @foreach($filteredUsers as $user)
                 <tr>
+                    <!-- Display user details in each row -->
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->phone_number }}</td>
