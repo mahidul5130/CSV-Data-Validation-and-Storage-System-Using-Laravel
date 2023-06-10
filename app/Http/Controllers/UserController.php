@@ -43,6 +43,21 @@ class UserController extends Controller
         foreach ($csvData as $row) {
             $data = array_combine($headers, $row);
 
+            // Check for duplicate records
+            $existingUser = User::where('email', $data['email'])
+                ->orWhere('phone_number', $data['phone_number'])
+                ->first();
+
+            // If a duplicate record is found, store it and continue to the next row
+            if ($existingUser) {
+                $duplicateRecords[] = [
+                    'record' => $data,
+                    'existing_user' => $existingUser,
+                ];
+                $totalDuplicate++;
+                continue;
+            }
+
             // Validate the data for each row
             $validator = Validator::make($data, [
                 'name' => 'required',
@@ -63,21 +78,6 @@ class UserController extends Controller
                 continue;
             }
 
-            // Check for duplicate records
-            $existingUser = User::where('email', $data['email'])
-                ->orWhere('phone_number', $data['phone_number'])
-                ->first();
-
-            // If a duplicate record is found, store it and continue to the next row
-            if ($existingUser) {
-                $duplicateRecords[] = [
-                    'record' => $data,
-                    'existing_user' => $existingUser,
-                ];
-                $totalDuplicate++;
-                continue;
-            }
-
             // Create a new user record
             User::create($data);
             $totalUploaded++;
@@ -95,6 +95,7 @@ class UserController extends Controller
         // Return the summary view with the relevant data
         return view('summary', compact('summary', 'invalidRecords', 'duplicateRecords'));
     }
+
 
     public function userList(Request $request)
     {

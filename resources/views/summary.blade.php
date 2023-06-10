@@ -41,17 +41,25 @@
             <thead>
                 <tr>
                     <th>Record</th>
-                    <th>Existing User</th>
+                    <th>Duplicate Details</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($duplicateRecords as $record)
                 <tr>
                     <td>{{ implode(', ', $record['record']) }}</td>
-                    <td>{{ implode(', ', $record['existing_user']->toArray()) }}</td>
+                    <td>
+                        @if ($record['existing_user']->email === $record['record']['email'])
+                            Email already exists.
+                        @endif
+                        @if ($record['existing_user']->phone_number === $record['record']['phone_number'])
+                            Phone number already exists.
+                        @endif
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+
     </div>
 @endsection
